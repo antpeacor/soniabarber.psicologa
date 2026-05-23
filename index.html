@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Sonia Barber · Psicóloga</title>
-<meta name="description" content="Sonia Barber — Psicóloga en Madrid. Terapia individual presencial y online. Ansiedad, autoestima, relaciones y bienestar emocional."/>
+<meta name="description" content="Sonia Barber — Psicóloga en Valencia. Terapia individual presencial y online. Ansiedad, autoestima, relaciones y bienestar emocional."/>
 <link rel="icon" type="image/png" href="images/logo.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -39,8 +39,8 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 .hamburger span{width:22px;height:1.5px;background:var(--text);transition:all .3s}
 
 /* HERO — clean split layout */
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;min-height:100svh}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:120px 60px 80px;background:var(--cream)}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:85vh}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 60px;background:var(--cream)}
 .hero-right{position:relative;overflow:hidden}
 .hero-right img{width:100%;height:100%;object-fit:cover;object-position:center 15%}
 .hero-eyebrow{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--garnet);margin-bottom:20px;font-weight:500}
@@ -66,8 +66,8 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 .media-label{font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-light);white-space:nowrap;font-weight:500}
 .media-divider{width:1px;height:20px;background:var(--taupe-mid)}
 .media-logos{display:flex;gap:36px;align-items:center}
-.media-logos img{height:22px;width:auto;opacity:.45;transition:opacity .3s;filter:grayscale(100%)}
-.media-logos img:hover{opacity:.7}
+.media-logos img{height:36px;width:auto;opacity:.5;transition:opacity .3s;filter:grayscale(100%)}
+.media-logos img:hover{opacity:.75}
 
 /* SECTIONS */
 section{padding:100px 48px}
@@ -106,14 +106,8 @@ section{padding:100px 48px}
 .paraquien-list{list-style:none;margin-top:24px}
 .paraquien-list li{padding:14px 0;border-bottom:1px solid var(--taupe-light);font-size:.78rem;line-height:1.8;color:var(--text-light);display:flex;gap:14px;align-items:flex-start}
 .paraquien-list li::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--garnet);margin-top:9px;flex-shrink:0}
-.video-placeholder{border-radius:16px;aspect-ratio:9/16;max-width:240px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;cursor:pointer;position:relative;overflow:hidden;margin-top:32px}
-.video-placeholder img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.video-overlay{position:absolute;inset:0;background:rgba(46,41,38,.2);transition:background .3s}
-.video-placeholder:hover .video-overlay{background:rgba(46,41,38,.08)}
-.play-btn{width:48px;height:48px;border-radius:50%;background:var(--garnet);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:transform .3s}
-.video-placeholder:hover .play-btn{transform:scale(1.08)}
-.play-btn::after{content:'';border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:3px}
-.video-caption{font-size:.6rem;color:#fff;letter-spacing:.12em;text-transform:uppercase;position:relative;z-index:2;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+.video-embed{margin-top:24px;border-radius:16px;overflow:hidden;aspect-ratio:9/16;max-width:260px;position:relative}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 
 /* TESTIMONIOS */
 .testimonios-section{background:var(--cream-dark)}
@@ -175,7 +169,7 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   .media-section{padding:28px 20px}
   .media-inner{flex-wrap:wrap;gap:20px}
   .media-logos{gap:24px}
-  .video-placeholder{max-width:200px}
+  .video-embed{max-width:200px}
   footer{padding:32px 24px;flex-direction:column;text-align:center}
   .footer-links{flex-wrap:wrap;justify-content:center}
   .reserva-section{padding:64px 24px 80px}
@@ -201,7 +195,7 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
 <!-- HERO — clean 50/50 split -->
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow fade-up">Psicóloga en Madrid · Online</p>
+    <p class="hero-eyebrow fade-up">Psicóloga en Valencia · Online</p>
     <h1 class="hero-title fade-up fade-delay-1">No se trata de ser<br/><em>otra persona.</em><br/>Sino de elegir<br/><em>quién eres.</em></h1>
     <p class="hero-sub fade-up fade-delay-1">Psicología clínica orientada al cambio real.<br/>Acompañamiento individual, presencial y online.</p>
     <div class="hero-buttons fade-up fade-delay-2">
@@ -247,7 +241,7 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
         <div class="divider"></div>
         <div class="about-body">
           <p>Soy Sonia Barber, psicóloga colegiada especializada en terapia cognitivo-conductual y psicología humanista. Trabajo desde un enfoque integrador, adaptado a cada persona y a su momento vital.</p>
-          <p>Mi consulta está en Madrid, aunque también atiendo de forma completamente online. Creo en la terapia como un espacio seguro donde la persona puede explorar, entenderse y crecer sin juicios.</p>
+          <p>Mi consulta está en Valencia, aunque también atiendo de forma completamente online. Creo en la terapia como un espacio seguro donde la persona puede explorar, entenderse y crecer sin juicios.</p>
         </div>
         <div class="about-stats">
           <div><span class="stat-num">+15</span><span class="stat-label">Años de experiencia</span></div>
@@ -298,11 +292,8 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
       <div class="fade-up fade-delay-1">
         <p class="section-label">Un momento de tu tiempo</p>
         <h2 class="section-title">Hay algo que<br/><em>quiero contarte.</em></h2>
-        <div class="video-placeholder">
-          <img src="images/video_cover.jpg" alt="Sonia Barber — vídeo de presentación"/>
-          <div class="video-overlay"></div>
-          <div class="play-btn"></div>
-          <p class="video-caption">Ver vídeo</p>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/u31qwQUeGuM?autoplay=1&mute=1&loop=1&playlist=u31qwQUeGuM&rel=0&modestbranding=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -343,7 +334,7 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
       </div>
       <div class="faq-list fade-up fade-delay-1">
         <div class="faq-item"><details><summary>¿Para qué sirve la llamada de valoración gratuita?<span class="faq-icon"></span></summary><p class="faq-a">Es un primer contacto sin compromiso de unos 20-30 minutos. Me cuentas cómo estás y qué te trae, y yo te explico cómo trabajo. Valoramos juntas si hay un buen encaje para empezar un proceso.</p></details></div>
-        <div class="faq-item"><details><summary>¿Atiendes de forma online?<span class="faq-icon"></span></summary><p class="faq-a">Sí. Atiendo tanto presencialmente en mi consulta de Madrid como de forma completamente online. Las sesiones online tienen la misma calidad y profundidad que las presenciales.</p></details></div>
+        <div class="faq-item"><details><summary>¿Atiendes de forma online?<span class="faq-icon"></span></summary><p class="faq-a">Sí. Atiendo tanto presencialmente en mi consulta de Valencia como de forma completamente online. Las sesiones online tienen la misma calidad y profundidad que las presenciales.</p></details></div>
         <div class="faq-item"><details><summary>¿Cuánto duran las sesiones y con qué frecuencia?<span class="faq-icon"></span></summary><p class="faq-a">Las sesiones duran 50 minutos. La frecuencia habitual es semanal, aunque en función del momento del proceso puede pasar a quincenal.</p></details></div>
         <div class="faq-item"><details><summary>¿Cuánto dura un proceso terapéutico?<span class="faq-icon"></span></summary><p class="faq-a">Depende mucho de cada persona y de los objetivos. Algunos procesos duran 3-4 meses, otros son más largos. En la primera sesión ya podemos hacer una estimación orientativa.</p></details></div>
         <div class="faq-item"><details><summary>¿Trabajas con seguros médicos?<span class="faq-icon"></span></summary><p class="faq-a">Actualmente atiendo de forma privada. Esto me permite ofrecerte un enfoque personalizado, sin limitaciones en el número de sesiones ni en los tiempos.</p></details></div>
