@@ -27,7 +27,7 @@ body{background:var(--cream);color:var(--text);font-family:'Montserrat',sans-ser
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 60px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,backdrop-filter .4s}
 nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,184,168,.2)}
 .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-.nav-logo img{height:40px;width:auto}
+.nav-logo img{height:28px;width:auto}
 .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:.18em;color:var(--garnet);text-transform:uppercase;line-height:1.2}
 .nav-sub{font-family:'Montserrat',sans-serif;font-size:.52rem;font-weight:500;letter-spacing:.22em;color:var(--text-light);text-transform:uppercase;display:block;margin-top:2px}
 .nav-links{display:flex;gap:36px;list-style:none;align-items:center}
@@ -40,12 +40,12 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 
 /* HERO */
 .hero{position:relative;height:100vh;min-height:700px;overflow:hidden}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(250,248,245,.88) 0%,rgba(250,248,245,.6) 50%,rgba(250,248,245,.15) 100%)}
-.hero-content{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding:0 60px 100px}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 20%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(250,248,245,.94) 0%,rgba(250,248,245,.85) 40%,rgba(250,248,245,.4) 65%,rgba(250,248,245,.08) 100%)}
+.hero-content{position:relative;z-index:2;height:100%;display:flex;align-items:center;padding:0 60px}
 .hero-text{max-width:560px}
 .hero-eyebrow{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--garnet);margin-bottom:22px;font-weight:500}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:28px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,4.5vw,4rem);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:28px}
 .hero-title em{font-style:italic;color:var(--garnet)}
 .hero-sub{font-size:.82rem;color:var(--text-light);line-height:2;letter-spacing:.04em;margin-bottom:48px;max-width:420px}
 .btn-primary{display:inline-block;background:var(--garnet);color:#fff;text-decoration:none;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:16px 38px;border-radius:2px;transition:all .3s;font-weight:500}
@@ -175,7 +175,7 @@ footer{background:var(--cream-dark);padding:52px 60px;display:flex;justify-conte
   .hamburger{display:flex}
   section{padding:80px 24px}
   .hero{min-height:600px}
-  .hero-content{padding:0 24px 60px}
+  .hero-content{padding:0 24px}
   .hero-title{font-size:clamp(2.2rem,8vw,3rem)}
   .about-grid,.paraquien-grid,.video-inner{grid-template-columns:1fr;gap:48px}
   .steps,.testimonios-grid{grid-template-columns:1fr}
