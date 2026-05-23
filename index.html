@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sonia Barber · Psicóloga</title>
+<meta name="description" content="Sonia Barber — Psicóloga en Madrid. Terapia individual presencial y online. Ansiedad, autoestima, relaciones y bienestar emocional."/>
+<link rel="icon" type="image/png" href="images/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#FAF8F5;
+  --cream-dark:#F3EFE9;
+  --taupe:#C8B8A8;
+  --taupe-light:#EDE5DC;
+  --taupe-mid:#D9CEC3;
+  --garnet:#6B1F2A;
+  --garnet-light:#8B2F3F;
+  --text:#2E2926;
+  --text-light:#8A7E78;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--text);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 60px;display:flex;justify-content:space-between;align-items:center;transition:background .4s,backdrop-filter .4s}
+nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(200,184,168,.2)}
+.nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-logo img{height:40px;width:auto}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:.18em;color:var(--garnet);text-transform:uppercase;line-height:1.2}
+.nav-sub{font-family:'Montserrat',sans-serif;font-size:.52rem;font-weight:500;letter-spacing:.22em;color:var(--text-light);text-transform:uppercase;display:block;margin-top:2px}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--text);text-decoration:none;transition:color .3s}
+.nav-links a:hover{color:var(--garnet)}
+.nav-cta{background:var(--garnet);color:#fff!important;padding:10px 22px;border-radius:2px}
+.nav-cta:hover{background:var(--garnet-light)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
+.hamburger span{width:22px;height:1.5px;background:var(--text);transition:all .3s}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:700px;overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(250,248,245,.88) 0%,rgba(250,248,245,.6) 50%,rgba(250,248,245,.15) 100%)}
+.hero-content{position:relative;z-index:2;height:100%;display:flex;align-items:flex-end;padding:0 60px 100px}
+.hero-text{max-width:560px}
+.hero-eyebrow{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--garnet);margin-bottom:22px;font-weight:500}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5.5vw,4.8rem);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:28px}
+.hero-title em{font-style:italic;color:var(--garnet)}
+.hero-sub{font-size:.82rem;color:var(--text-light);line-height:2;letter-spacing:.04em;margin-bottom:48px;max-width:420px}
+.btn-primary{display:inline-block;background:var(--garnet);color:#fff;text-decoration:none;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:16px 38px;border-radius:2px;transition:all .3s;font-weight:500}
+.btn-primary:hover{background:var(--garnet-light);transform:translateY(-1px);box-shadow:0 8px 28px rgba(107,31,42,.2)}
+.btn-outline{display:inline-block;border:1px solid var(--taupe);color:var(--text);text-decoration:none;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;padding:15px 34px;border-radius:2px;margin-left:16px;transition:all .3s;font-weight:500}
+.btn-outline:hover{border-color:var(--garnet);color:var(--garnet)}
+.hero-scroll{position:absolute;bottom:36px;right:60px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero-scroll span{font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-light);writing-mode:vertical-lr}
+.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--garnet),transparent);animation:scrollAnim 2s ease-in-out infinite}
+@keyframes scrollAnim{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:.8;transform:scaleY(1)}}
+
+/* TICKER */
+.ticker-section{background:var(--garnet);padding:16px 0;overflow:hidden}
+.ticker-track{display:flex;white-space:nowrap;animation:ticker 32s linear infinite}
+.ticker-item{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;font-style:italic;color:rgba(255,255,255,.88);padding:0 40px;letter-spacing:.06em;display:inline-flex;align-items:center;gap:40px}
+.ticker-item::after{content:'·';color:rgba(255,255,255,.35);font-style:normal}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* MEDIA */
+.media-section{padding:44px 60px;background:var(--cream);border-bottom:1px solid var(--taupe-light)}
+.media-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:44px;justify-content:center;flex-wrap:wrap}
+.media-label{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-light);white-space:nowrap;font-weight:500}
+.media-divider{width:1px;height:24px;background:var(--taupe-mid)}
+.media-logos{display:flex;gap:44px;align-items:center;flex-wrap:wrap;justify-content:center}
+.media-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;color:var(--text-light);letter-spacing:.05em;transition:color .3s;cursor:default}
+.media-name:hover{color:var(--garnet)}
+
+/* SECTIONS */
+section{padding:140px 60px}
+.section-inner{max-width:1080px;margin:0 auto}
+.section-label{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--garnet);margin-bottom:18px;font-weight:500}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.8vw,3.2rem);font-weight:300;line-height:1.2;color:var(--text)}
+.section-title em{font-style:italic}
+.divider{width:42px;height:1px;background:var(--garnet);margin:30px 0}
+.divider-center{margin:30px auto}
+
+/* SOBRE MÍ */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.about-img{width:100%;border-radius:4px;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.about-body{font-size:.82rem;line-height:2.1;color:var(--text-light);margin-top:22px}
+.about-body p+p{margin-top:14px}
+.about-stats{display:flex;gap:36px;margin-top:44px;padding-top:38px;border-top:1px solid var(--taupe-light)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:300;color:var(--garnet);display:block;line-height:1}
+.stat-label{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-light);margin-top:6px;display:block}
+
+/* MÉTODO */
+.metodo-section{background:var(--cream-dark)}
+.metodo-intro{max-width:520px;margin:0 auto 72px;text-align:center}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--taupe-light);border:1px solid var(--taupe-light);border-radius:4px;overflow:hidden}
+.step{background:var(--cream-dark);padding:52px 38px;position:relative;transition:background .3s}
+.step:hover{background:var(--cream)}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:3.6rem;font-weight:300;color:var(--taupe-mid);line-height:1;margin-bottom:22px;display:block;transition:color .3s}
+.step:hover .step-num{color:var(--garnet)}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-weight:400;margin-bottom:14px;color:var(--text)}
+.step-body{font-size:.78rem;line-height:1.95;color:var(--text-light)}
+.step-top-line{position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .35s}
+.step:hover .step-top-line{background:var(--garnet)}
+
+/* PARA QUIÉN */
+.paraquien-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.paraquien-img{width:100%;border-radius:4px;aspect-ratio:4/5;object-fit:cover;object-position:top}
+.paraquien-list{list-style:none;margin-top:30px}
+.paraquien-list li{padding:18px 0;border-bottom:1px solid var(--taupe-light);font-size:.8rem;line-height:1.85;color:var(--text-light);display:flex;gap:16px;align-items:flex-start}
+.paraquien-list li::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--garnet);margin-top:10px;flex-shrink:0}
+
+/* VIDEO */
+.video-section{background:var(--cream-dark);padding:140px 60px}
+.video-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.video-placeholder{border-radius:20px;aspect-ratio:9/16;max-width:280px;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;cursor:pointer;position:relative;overflow:hidden}
+.video-placeholder img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video-overlay{position:absolute;inset:0;background:rgba(46,41,38,.25);transition:background .3s}
+.video-placeholder:hover .video-overlay{background:rgba(46,41,38,.12)}
+.play-btn{width:56px;height:56px;border-radius:50%;background:var(--garnet);display:flex;align-items:center;justify-content:center;position:relative;z-index:2;transition:transform .3s}
+.video-placeholder:hover .play-btn{transform:scale(1.08)}
+.play-btn::after{content:'';border-left:18px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
+.video-caption{font-size:.66rem;color:#fff;letter-spacing:.12em;text-transform:uppercase;position:relative;z-index:2;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+
+/* TESTIMONIOS */
+.testimonios-section{background:var(--cream)}
+.testimonios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--taupe-light);border:1px solid var(--taupe-light);border-radius:4px;overflow:hidden;margin-top:60px}
+.testimonio{background:var(--cream);padding:48px 36px}
+.testimonio-quote{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;font-style:italic;line-height:1.8;color:var(--text);margin-bottom:28px}
+.testimonio-quote::before{content:'\201C';font-size:2rem;color:var(--garnet);line-height:0;vertical-align:-.4em;margin-right:3px}
+.testimonio-author{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);font-weight:500}
+
+/* FAQ */
+.faq-section{background:var(--cream-dark)}
+.faq-list{max-width:680px;margin:56px auto 0}
+.faq-item{border-bottom:1px solid var(--taupe-light)}
+details summary{padding:26px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:.82rem;font-weight:500;letter-spacing:.04em;color:var(--text);transition:color .3s;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary:hover{color:var(--garnet)}
+.faq-icon{width:18px;height:18px;flex-shrink:0;margin-left:24px;position:relative}
+.faq-icon::before,.faq-icon::after{content:'';position:absolute;background:currentColor;transition:transform .3s,opacity .3s}
+.faq-icon::before{width:12px;height:1px;top:50%;left:50%;transform:translate(-50%,-50%)}
+.faq-icon::after{width:1px;height:12px;top:50%;left:50%;transform:translate(-50%,-50%)}
+details[open] .faq-icon::after{opacity:0;transform:translate(-50%,-50%) rotate(90deg)}
+.faq-a{padding:0 0 24px;font-size:.8rem;line-height:2;color:var(--text-light);max-width:560px}
+
+/* RESERVA */
+.reserva-section{background:var(--cream);text-align:center}
+.reserva-inner{max-width:720px;margin:0 auto}
+.calendly-inline-widget{border:1px solid var(--taupe-light);border-radius:6px}
+
+/* FOOTER */
+footer{background:var(--cream-dark);padding:52px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;border-top:1px solid var(--taupe-light)}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;letter-spacing:.16em;color:var(--garnet);text-transform:uppercase}
+.footer-links{display:flex;gap:32px;list-style:none}
+.footer-links a{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-light);text-decoration:none;transition:color .3s}
+.footer-links a:hover{color:var(--garnet)}
+.footer-copy{font-size:.62rem;color:var(--taupe);letter-spacing:.08em}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-delay-1{transition-delay:.12s}
+.fade-delay-2{transition-delay:.24s}
+.fade-delay-3{transition-delay:.36s}
+
+/* SEPARATOR */
+.sep{width:100%;height:1px;background:var(--taupe-light);border:none;margin:0}
+
+@media(max-width:900px){
+  nav{padding:18px 24px}
+  .nav-links{position:fixed;top:0;right:-100%;width:260px;height:100vh;background:var(--cream);flex-direction:column;padding:80px 32px 40px;gap:28px;transition:right .35s;box-shadow:-4px 0 20px rgba(0,0,0,.08)}
+  .nav-links.open{right:0}
+  .hamburger{display:flex}
+  section{padding:80px 24px}
+  .hero{min-height:600px}
+  .hero-content{padding:0 24px 60px}
+  .hero-title{font-size:clamp(2.2rem,8vw,3rem)}
+  .about-grid,.paraquien-grid,.video-inner{grid-template-columns:1fr;gap:48px}
+  .steps,.testimonios-grid{grid-template-columns:1fr}
+  .about-stats{flex-wrap:wrap}
+  .media-section{padding:32px 24px}
+  .video-section{padding:80px 24px}
+  footer{padding:36px 24px;flex-direction:column;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+  .hero-scroll{display:none}
+  .btn-outline{margin-left:0;margin-top:12px}
+  .hero-text .fade-up.fade-delay-3{display:flex;flex-direction:column;align-items:flex-start;gap:0}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <img src="images/logo.png" alt="SB"/>
+    <div class="nav-logo-text">Sonia Barber<span class="nav-sub">Psicología</span></div>
+  </a>
+  <button class="hamburger" id="menuBtn" aria-label="Menú"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#metodo">Método</a></li>
+    <li><a href="#para-quien">Para quién</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#reserva" class="nav-cta">Reservar llamada</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <img class="hero-img" src="images/hero.jpg" alt="Sonia Barber — Psicóloga"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-eyebrow fade-up">Sonia Barber · Psicóloga</p>
+      <h1 class="hero-title fade-up fade-delay-1">No se trata de<br/>ser <em>otra persona.</em><br/>Sino de elegir<br/><em>quién eres.</em></h1>
+      <p class="hero-sub fade-up fade-delay-2">Psicología clínica orientada al cambio real. Acompañamiento individual, presencial y online.</p>
+      <div class="fade-up fade-delay-3">
+        <a href="#reserva" class="btn-primary">Reservar llamada gratuita</a>
+        <a href="#sobre-mi" class="btn-outline">Conocerme</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
+</section>
+
+<div class="ticker-section">
+  <div class="ticker-track" id="ticker">
+    <span class="ticker-item">Ansiedad</span><span class="ticker-item">Autoestima</span><span class="ticker-item">Relaciones</span><span class="ticker-item">Estrés</span><span class="ticker-item">Identidad</span><span class="ticker-item">Duelo</span><span class="ticker-item">Bienestar emocional</span><span class="ticker-item">Terapia individual</span><span class="ticker-item">Psicología online</span><span class="ticker-item">Cambio personal</span><span class="ticker-item">Ansiedad</span><span class="ticker-item">Autoestima</span><span class="ticker-item">Relaciones</span><span class="ticker-item">Estrés</span><span class="ticker-item">Identidad</span><span class="ticker-item">Duelo</span><span class="ticker-item">Bienestar emocional</span><span class="ticker-item">Terapia individual</span><span class="ticker-item">Psicología online</span><span class="ticker-item">Cambio personal</span>
+  </div>
+</div>
+
+<div class="media-section">
+  <div class="media-inner">
+    <span class="media-label">Colaboraciones</span>
+    <div class="media-divider"></div>
+    <div class="media-logos">
+      <span class="media-name">Expansión</span>
+      <span class="media-name">Agencia EFE</span>
+      <span class="media-name">Instituto de Estudios Financieros</span>
+    </div>
+  </div>
+</div>
+
+<section id="sobre-mi">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="fade-up">
+        <img class="about-img" src="images/about.jpg" alt="Sonia Barber en su consulta de psicología"/>
+      </div>
+      <div class="fade-up fade-delay-1">
+        <p class="section-label">Sobre mí</p>
+        <h2 class="section-title">Psicóloga clínica.<br/>Con <em>más de 15 años</em><br/>acompañando personas.</h2>
+        <div class="divider"></div>
+        <div class="about-body">
+          <p>Soy Sonia Barber, psicóloga colegiada especializada en terapia cognitivo-conductual y psicología humanista. Trabajo desde un enfoque integrador, adaptado a cada persona y a su momento vital.</p>
+          <p>Mi consulta está en Madrid, aunque también atiendo de forma completamente online. Creo en la terapia como un espacio seguro donde la persona puede explorar, entenderse y crecer sin juicios.</p>
+          <p>He colaborado con medios como Expansión y la Agencia EFE, y he formado parte de proyectos con el Instituto de Estudios Financieros.</p>
+        </div>
+        <div class="about-stats">
+          <div><span class="stat-num">+15</span><span class="stat-label">Años de experiencia</span></div>
+          <div><span class="stat-num">+800</span><span class="stat-label">Pacientes acompañados</span></div>
+          <div><span class="stat-num">98%</span><span class="stat-label">Satisfacción</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section class="metodo-section" id="metodo">
+  <div class="section-inner">
+    <div class="metodo-intro fade-up">
+      <p class="section-label">Cómo trabajamos</p>
+      <h2 class="section-title">Un proceso <em>pensado para ti,</em><br/>paso a paso.</h2>
+    </div>
+    <div class="steps">
+      <div class="step fade-up"><div class="step-top-line"></div><span class="step-num">01</span><h3 class="step-title">Llamada de valoración gratuita</h3><p class="step-body">Nos conocemos sin compromiso. Te escucho, resuelvo tus dudas y valoramos juntas si la terapia conmigo es el camino adecuado para ti en este momento.</p></div>
+      <div class="step fade-up fade-delay-1"><div class="step-top-line"></div><span class="step-num">02</span><h3 class="step-title">Primera sesión de evaluación</h3><p class="step-body">Exploramos en profundidad tu situación actual, tu historia y tus objetivos. Diseñamos un plan terapéutico personalizado, claro y con dirección.</p></div>
+      <div class="step fade-up fade-delay-2"><div class="step-top-line"></div><span class="step-num">03</span><h3 class="step-title">Proceso terapéutico</h3><p class="step-body">Sesiones semanales o quincenales donde trabajamos de forma activa. Herramientas reales, avances medibles y un espacio donde nada queda sin decirse.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section id="para-quien">
+  <div class="section-inner">
+    <div class="paraquien-grid">
+      <div class="fade-up">
+        <img class="paraquien-img" src="images/paraquien.jpg" alt="Sonia Barber trabajando en su consulta"/>
+      </div>
+      <div class="fade-up fade-delay-1">
+        <p class="section-label">¿Es para ti?</p>
+        <h2 class="section-title">Puede que te <em>reconozcas</em><br/>en algo de esto.</h2>
+        <div class="divider"></div>
+        <ul class="paraquien-list">
+          <li>Sientes que la ansiedad o el estrés te superan y no sabes cómo gestionarlo.</li>
+          <li>Tienes dificultades en tus relaciones personales o de pareja que se repiten.</li>
+          <li>Tu autoestima te limita más de lo que te gustaría admitir.</li>
+          <li>Estás atravesando una etapa de cambio, duelo o pérdida.</li>
+          <li>Sabes que algo no está bien, pero no sabes exactamente qué.</li>
+          <li>Quieres trabajarte desde dentro, no solo «estar mejor» puntualmente.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section class="video-section" id="video">
+  <div class="video-inner section-inner">
+    <div class="fade-up">
+      <p class="section-label">Un momento de tu tiempo</p>
+      <h2 class="section-title">Hay algo que<br/><em>quiero contarte.</em></h2>
+      <div class="divider"></div>
+      <div class="about-body">
+        <p>Pedir ayuda no es rendirse. Es elegir. En este vídeo te cuento cómo es trabajar conmigo y qué puedes esperar de nuestras sesiones.</p>
+        <p style="margin-top:14px">La primera llamada es completamente gratuita y sin compromiso.</p>
+      </div>
+      <div style="margin-top:40px"><a href="#reserva" class="btn-primary">Reservar mi llamada</a></div>
+    </div>
+    <div class="fade-up fade-delay-1">
+      <div class="video-placeholder">
+        <img src="images/video_cover.jpg" alt="Sonia Barber — vídeo de presentación"/>
+        <div class="video-overlay"></div>
+        <div class="play-btn"></div>
+        <p class="video-caption">Ver vídeo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section class="testimonios-section" id="testimonios">
+  <div class="section-inner">
+    <div class="fade-up" style="text-align:center">
+      <p class="section-label">Testimonios</p>
+      <h2 class="section-title">Lo que dicen quienes<br/><em>ya han dado el paso.</em></h2>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio fade-up"><p class="testimonio-quote">Nunca pensé que hablar con alguien pudiera cambiar tanto mi forma de ver las cosas. Sonia crea un espacio donde te sientes completamente a salvo.</p><p class="testimonio-author">L.M. — Madrid</p></div>
+      <div class="testimonio fade-up fade-delay-1"><p class="testimonio-quote">Llevaba años evitando situaciones por la ansiedad. Con Sonia aprendí herramientas reales que uso cada día. Ojalá hubiera pedido ayuda antes.</p><p class="testimonio-author">A.R. — Online</p></div>
+      <div class="testimonio fade-up fade-delay-2"><p class="testimonio-quote">Lo que más me sorprendió fue lo concreta y práctica que es la terapia. No solo hablas, realmente trabajas. Y los resultados se notan.</p><p class="testimonio-author">C.P. — Madrid</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="fade-up" style="text-align:center">
+      <p class="section-label">Preguntas frecuentes</p>
+      <h2 class="section-title">Resuelvo tus <em>dudas.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><details><summary>¿Para qué sirve la llamada de valoración gratuita?<span class="faq-icon"></span></summary><p class="faq-a">Es un primer contacto sin compromiso de unos 20-30 minutos. Me cuentas cómo estás y qué te trae, y yo te explico cómo trabajo. Valoramos juntas si hay un buen encaje para empezar un proceso.</p></details></div>
+      <div class="faq-item"><details><summary>¿Atiendes de forma online?<span class="faq-icon"></span></summary><p class="faq-a">Sí. Atiendo tanto presencialmente en mi consulta de Madrid como de forma completamente online. Las sesiones online tienen la misma calidad y profundidad que las presenciales.</p></details></div>
+      <div class="faq-item"><details><summary>¿Cuánto duran las sesiones y con qué frecuencia?<span class="faq-icon"></span></summary><p class="faq-a">Las sesiones duran 50 minutos. La frecuencia habitual es semanal, aunque en función del momento del proceso puede pasar a quincenal. Lo consensuamos en función de tus necesidades.</p></details></div>
+      <div class="faq-item"><details><summary>¿Cuánto dura un proceso terapéutico?<span class="faq-icon"></span></summary><p class="faq-a">Depende mucho de cada persona y de los objetivos. Algunos procesos duran 3-4 meses, otros son más largos. En la primera sesión de evaluación ya podemos hacer una estimación orientativa.</p></details></div>
+      <div class="faq-item"><details><summary>¿Trabajas con seguros médicos?<span class="faq-icon"></span></summary><p class="faq-a">Actualmente atiendo de forma privada, sin pasar por compañías aseguradoras. Esto me permite ofrecerte un enfoque personalizado, sin limitaciones en el número de sesiones ni en los tiempos.</p></details></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<section class="reserva-section" id="reserva">
+  <div class="reserva-inner">
+    <div class="fade-up">
+      <p class="section-label">El primer paso</p>
+      <h2 class="section-title" style="font-size:clamp(2.4rem,4.5vw,3.8rem)">Reserva tu llamada<br/>de valoración <em>gratuita.</em></h2>
+      <div class="divider divider-center"></div>
+      <p style="font-size:.82rem;color:var(--text-light);line-height:2;max-width:480px;margin:0 auto">Sin compromiso. Sin prisas. Solo un espacio para conocernos y ver si puedo acompañarte.</p>
+    </div>
+    <div class="fade-up fade-delay-1" style="margin-top:56px;">
+      <div class="calendly-inline-widget" data-url="https://calendly.com/soniabarber/psicologia?hide_gdpr_banner=1&background_color=faf8f5&text_color=2e2926&primary_color=6b1f2a" style="min-width:320px;height:700px;border-radius:6px;overflow:hidden;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">Sonia Barber Psicología</div>
+  <ul class="footer-links">
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#metodo">Método</a></li>
+    <li><a href="#reserva">Reservar</a></li>
+    <li><a href="#">Política de privacidad</a></li>
+  </ul>
+  <p class="footer-copy">© 2026 Sonia Barber Psicología</p>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)})
+document.getElementById('menuBtn').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('open')})
+document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('navLinks').classList.remove('open')})})
+const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1})
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el))
+</script>
+</body>
+</html>
