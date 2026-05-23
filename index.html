@@ -40,8 +40,8 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 
 /* HERO — overlay style, tight */
 .hero{position:relative;min-height:92vh;overflow:hidden;display:flex;align-items:center}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 15%}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--cream) 0%,rgba(250,248,245,.92) 30%,rgba(250,248,245,.55) 55%,rgba(250,248,245,.1) 80%,transparent 100%)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:85% 15%}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--cream) 0%,rgba(250,248,245,.95) 25%,rgba(250,248,245,.75) 42%,rgba(250,248,245,.4) 58%,rgba(250,248,245,.15) 72%,transparent 100%)}
 .hero-content{position:relative;z-index:2;padding:80px 48px 60px;max-width:540px}
 .hero-eyebrow{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--garnet);margin-bottom:20px;font-weight:500}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:24px}
@@ -66,8 +66,8 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 .media-label{font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-light);white-space:nowrap;font-weight:500}
 .media-divider{width:1px;height:24px;background:var(--taupe-mid)}
 .media-logos{display:flex;gap:48px;align-items:center}
-.media-logos img{height:28px;width:auto;opacity:.7;transition:opacity .3s}
-.media-logos img:hover{opacity:1}
+.media-logos img{height:56px;width:auto;opacity:.6;transition:opacity .3s;filter:grayscale(100%) brightness(0.7)}
+.media-logos img:hover{opacity:.9;filter:grayscale(0%)}
 
 /* SECTIONS */
 section{padding:100px 48px}
