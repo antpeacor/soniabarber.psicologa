@@ -43,7 +43,7 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 .hero-img{position:absolute;top:0;right:0;width:55%;height:100%;object-fit:cover;object-position:center 10%}
 .hero-overlay{position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(to right,var(--cream) 0%,rgba(250,248,245,.6) 15%,rgba(250,248,245,.15) 40%,transparent 60%)}
 .hero-content{position:relative;z-index:2;padding:80px 48px 60px;max-width:540px}
-.hero-eyebrow{font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--garnet);margin-bottom:20px;font-weight:500}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--garnet);margin-bottom:32px;margin-top:8px;font-weight:500}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:24px}
 .hero-title em{font-style:italic;color:var(--garnet)}
 .hero-sub{font-size:.8rem;color:var(--text-light);line-height:1.9;letter-spacing:.03em;margin-bottom:36px;max-width:400px}
@@ -66,7 +66,7 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 .media-label{font-size:.55rem;letter-spacing:.24em;text-transform:uppercase;color:var(--text-light);white-space:nowrap;font-weight:500}
 .media-divider{width:1px;height:24px;background:var(--taupe-mid)}
 .media-logos{display:flex;gap:48px;align-items:center}
-.media-logos img{height:112px;width:auto;opacity:.55;transition:opacity .3s;filter:grayscale(100%) brightness(0.65)}
+.media-logos img{height:78px;width:auto;opacity:.55;transition:opacity .3s;filter:grayscale(100%) brightness(0.65)}
 .media-logos img:hover{opacity:.85;filter:grayscale(0%)}
 
 /* SECTIONS */
@@ -109,13 +109,22 @@ section{padding:100px 48px}
 .video-embed{margin-top:24px;border-radius:16px;overflow:hidden;aspect-ratio:9/16;max-width:260px;position:relative}
 .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 
-/* TESTIMONIOS */
+/* TESTIMONIOS — carousel */
 .testimonios-section{background:var(--cream-dark)}
-.testimonios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--taupe-light);border:1px solid var(--taupe-light);border-radius:4px;overflow:hidden;margin-top:48px}
-.testimonio{background:var(--cream-dark);padding:40px 32px}
-.testimonio-quote{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.8;color:var(--text);margin-bottom:24px}
-.testimonio-quote::before{content:'\201C';font-size:1.8rem;color:var(--garnet);line-height:0;vertical-align:-.4em;margin-right:3px}
+.testimonios-wrap{position:relative;margin-top:48px;max-width:640px;margin-left:auto;margin-right:auto}
+.testimonios-track{overflow:hidden}
+.testimonios-slider{display:flex;transition:transform .5s ease}
+.testimonio{min-width:100%;padding:48px 40px;text-align:center}
+.testimonio-quote{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;font-style:italic;line-height:1.8;color:var(--text);margin-bottom:28px}
+.testimonio-quote::before{content:'\201C';font-size:2.2rem;color:var(--garnet);line-height:0;vertical-align:-.35em;margin-right:4px}
 .testimonio-author{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);font-weight:500}
+.carousel-arrows{display:flex;justify-content:center;gap:20px;margin-top:32px}
+.carousel-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--taupe-mid);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;color:var(--text-light)}
+.carousel-arrow:hover{border-color:var(--garnet);color:var(--garnet)}
+.carousel-arrow svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:20px}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:var(--taupe-mid);border:none;cursor:pointer;transition:all .3s;padding:0}
+.carousel-dot.active{background:var(--garnet);transform:scale(1.2)}
 
 /* FAQ */
 .faq-section{background:var(--cream)}
@@ -197,12 +206,10 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   <img class="hero-img" src="images/hero.jpg" alt="Sonia Barber — Psicóloga"/>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow fade-up">Psicóloga en Valencia · Online</p>
-    <h1 class="hero-title fade-up fade-delay-1">No se trata de ser<br/><em>otra persona.</em><br/>Sino de elegir<br/><em>quién eres.</em></h1>
-    <p class="hero-sub fade-up fade-delay-1">Psicología clínica orientada al cambio real.<br/>Acompañamiento individual, presencial y online.</p>
+    <h1 class="hero-title fade-up">No se trata de ser<br/><em>otra persona.</em><br/>Sino de elegir<br/><em>quién eres.</em></h1>
+    <p class="hero-eyebrow fade-up fade-delay-1">Psicóloga en Valencia · Online</p>
     <div class="hero-buttons fade-up fade-delay-2">
       <a href="#reserva" class="btn-primary">Empieza tu cambio</a>
-      <a href="#sobre-mi" class="btn-outline">Conocerme</a>
     </div>
   </div>
 </section>
@@ -308,10 +315,21 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
       <p class="section-label">Testimonios</p>
       <h2 class="section-title">Lo que dicen quienes <em>ya han dado el paso.</em></h2>
     </div>
-    <div class="testimonios-grid">
-      <div class="testimonio fade-up"><p class="testimonio-quote">Nunca pensé que hablar con alguien pudiera cambiar tanto mi forma de ver las cosas. Sonia crea un espacio donde te sientes completamente a salvo.</p><p class="testimonio-author">L.M. — Madrid</p></div>
-      <div class="testimonio fade-up fade-delay-1"><p class="testimonio-quote">Llevaba años evitando situaciones por la ansiedad. Con Sonia aprendí herramientas reales que uso cada día. Ojalá hubiera pedido ayuda antes.</p><p class="testimonio-author">A.R. — Online</p></div>
-      <div class="testimonio fade-up fade-delay-2"><p class="testimonio-quote">Lo que más me sorprendió fue lo concreta y práctica que es la terapia. No solo hablas, realmente trabajas. Y los resultados se notan.</p><p class="testimonio-author">C.P. — Madrid</p></div>
+    <div class="testimonios-wrap fade-up">
+      <div class="testimonios-track">
+        <div class="testimonios-slider" id="testimonioSlider">
+          <div class="testimonio"><p class="testimonio-quote">Nunca pensé que hablar con alguien pudiera cambiar tanto mi forma de ver las cosas. Sonia crea un espacio donde te sientes completamente a salvo.</p><p class="testimonio-author">L.M. — Madrid</p></div>
+          <div class="testimonio"><p class="testimonio-quote">Llevaba años evitando situaciones por la ansiedad. Con Sonia aprendí herramientas reales que uso cada día. Ojalá hubiera pedido ayuda antes.</p><p class="testimonio-author">A.R. — Online</p></div>
+          <div class="testimonio"><p class="testimonio-quote">Lo que más me sorprendió fue lo concreta y práctica que es la terapia. No solo hablas, realmente trabajas. Y los resultados se notan.</p><p class="testimonio-author">C.P. — Madrid</p></div>
+          <div class="testimonio"><p class="testimonio-quote">Gracias a Sonia entendí que pedir ayuda no es debilidad, es valentía. El proceso me cambió la vida de una forma que no esperaba.</p><p class="testimonio-author">M.G. — Valencia</p></div>
+          <div class="testimonio"><p class="testimonio-quote">Sonia tiene una forma de escuchar que te hace sentir comprendida desde el primer minuto. Es directa, cercana y muy profesional.</p><p class="testimonio-author">P.R. — Online</p></div>
+        </div>
+      </div>
+      <div class="carousel-arrows">
+        <button class="carousel-arrow" id="prevBtn" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="carousel-arrow" id="nextBtn" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </div>
 </section>
@@ -377,6 +395,29 @@ document.getElementById('menuBtn').addEventListener('click',()=>{document.getEle
 document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('navLinks').classList.remove('open')})})
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1})
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el))
+
+// Testimonials carousel
+;(function(){
+  const slider=document.getElementById('testimonioSlider')
+  const items=slider.children
+  const total=items.length
+  let current=0
+  const dotsWrap=document.getElementById('carouselDots')
+  for(let i=0;i<total;i++){
+    const d=document.createElement('button')
+    d.className='carousel-dot'+(i===0?' active':'')
+    d.setAttribute('aria-label','Testimonio '+(i+1))
+    d.onclick=()=>goTo(i)
+    dotsWrap.appendChild(d)
+  }
+  function goTo(n){
+    current=n
+    slider.style.transform='translateX(-'+current*100+'%)'
+    dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===current))
+  }
+  document.getElementById('prevBtn').onclick=()=>goTo(current>0?current-1:total-1)
+  document.getElementById('nextBtn').onclick=()=>goTo(current<total-1?current+1:0)
+})()
 </script>
 </body>
 </html>
