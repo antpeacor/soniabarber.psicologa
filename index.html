@@ -9,17 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --cream:#FAF8F5;
-  --cream-dark:#F3EFE9;
-  --taupe:#C8B8A8;
-  --taupe-light:#EDE5DC;
-  --taupe-mid:#D9CEC3;
-  --garnet:#6B1F2A;
-  --garnet-light:#8B2F3F;
-  --text:#2E2926;
-  --text-light:#8A7E78;
-}
+:root{--cream:#FAF8F5;--cream-dark:#F3EFE9;--taupe:#C8B8A8;--taupe-light:#EDE5DC;--taupe-mid:#D9CEC3;--garnet:#6B1F2A;--garnet-light:#8B2F3F;--text:#2E2926;--text-light:#8A7E78}
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--text);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden}
 
@@ -38,19 +28,18 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
 .hamburger span{width:22px;height:1.5px;background:var(--text);transition:all .3s}
 
-/* HERO — text left, video right */
-.hero{display:grid;grid-template-columns:1fr auto;min-height:92vh;background:var(--cream);align-items:center;padding:80px 48px 60px;gap:48px}
-.hero-content{max-width:520px}
-.hero-eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--garnet);margin-bottom:32px;margin-top:8px;font-weight:500}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:24px}
-.hero-title em{font-style:italic;color:var(--garnet)}
-.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
-.hero-video{width:280px;aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(46,41,38,.12);flex-shrink:0}
+/* HERO */
+.hero{position:relative;min-height:92vh;overflow:hidden;display:flex;align-items:center;background:var(--cream)}
+.hero-bg{position:absolute;top:0;right:0;width:55%;height:100%;object-fit:cover;object-position:center 10%}
+.hero-overlay{position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(to right,var(--cream) 0%,rgba(250,248,245,.6) 15%,rgba(250,248,245,.15) 40%,transparent 60%)}
+.hero-content{position:relative;z-index:2;padding:80px 48px 60px;max-width:540px}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.25;color:var(--text);margin-bottom:20px}
+.hero-title em{font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--garnet);font-size:1.15em}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--garnet);margin-bottom:32px;font-weight:500}
+.hero-video{position:absolute;top:50%;right:48px;transform:translateY(-50%);width:260px;aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(46,41,38,.15);z-index:3}
 .hero-video iframe{width:100%;height:100%;border:none}
 .btn-primary{display:inline-block;background:var(--garnet);color:#fff;text-decoration:none;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:15px 34px;border-radius:2px;transition:all .3s;font-weight:500}
 .btn-primary:hover{background:var(--garnet-light);transform:translateY(-1px);box-shadow:0 8px 28px rgba(107,31,42,.18)}
-.btn-outline{display:inline-block;border:1px solid var(--taupe);color:var(--text);text-decoration:none;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:14px 30px;border-radius:2px;transition:all .3s;font-weight:500}
-.btn-outline:hover{border-color:var(--garnet);color:var(--garnet)}
 
 /* TICKER */
 .ticker-section{background:var(--garnet);padding:14px 0;overflow:hidden}
@@ -77,22 +66,30 @@ section{padding:100px 48px}
 .divider{width:36px;height:1px;background:var(--garnet);margin:24px 0}
 .divider-center{margin:24px auto}
 
-/* SOBRE MÍ — with photo */
+/* SOBRE MÍ */
 .about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:center}
 .about-img{width:100%;border-radius:4px;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top}
 .about-body{font-size:.8rem;line-height:2;color:var(--text-light);margin-top:18px}
 .about-body p+p{margin-top:12px}
-.about-stats-big{margin-top:40px;padding-top:36px;border-top:1px solid var(--taupe-light);display:flex;flex-direction:column;gap:24px}
+.about-stats-big{margin-top:32px;display:flex;flex-direction:column;gap:20px}
 .stat-big{display:flex;align-items:baseline;gap:14px}
 .stat-big-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--garnet);line-height:1;white-space:nowrap}
 .stat-big-label{font-size:.78rem;color:var(--text-light);line-height:1.5}
 
+/* EQUIPO */
+.equipo-section{background:var(--cream-dark)}
+.equipo-grid{display:flex;gap:48px;justify-content:center;margin-top:48px}
+.equipo-card{text-align:center;max-width:260px}
+.equipo-card img{width:200px;height:200px;border-radius:50%;object-fit:cover;object-position:top;margin-bottom:20px;border:3px solid var(--taupe-light)}
+.equipo-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--text);margin-bottom:6px}
+.equipo-role{font-size:.72rem;color:var(--text-light);line-height:1.6}
+
 /* MÉTODO */
-.metodo-section{background:var(--cream-dark)}
+.metodo-section{background:var(--cream)}
 .metodo-intro{max-width:480px;margin:0 auto 56px;text-align:center}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--taupe-light);border:1px solid var(--taupe-light);border-radius:4px;overflow:hidden}
-.step{background:var(--cream-dark);padding:44px 32px;position:relative;transition:background .3s}
-.step:hover{background:var(--cream)}
+.step{background:var(--cream);padding:44px 32px;position:relative;transition:background .3s}
+.step:hover{background:#fff}
 .step-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--taupe-mid);line-height:1;margin-bottom:18px;display:block;transition:color .3s}
 .step:hover .step-num{color:var(--garnet)}
 .step-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;margin-bottom:12px;color:var(--text)}
@@ -100,16 +97,16 @@ section{padding:100px 48px}
 .step-top-line{position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .35s}
 .step:hover .step-top-line{background:var(--garnet)}
 
-/* PARA QUIÉN — with image */
-.combined-section{background:var(--cream)}
-.combined-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+/* PARA QUIÉN */
+.paraquien-section{background:var(--cream-dark)}
+.paraquien-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .paraquien-img{width:100%;border-radius:4px;aspect-ratio:4/5;object-fit:cover;object-position:top}
 .paraquien-list{list-style:none;margin-top:24px}
 .paraquien-list li{padding:14px 0;border-bottom:1px solid var(--taupe-light);font-size:.78rem;line-height:1.8;color:var(--text-light);display:flex;gap:14px;align-items:flex-start}
 .paraquien-list li::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--garnet);margin-top:9px;flex-shrink:0}
 
 /* TESTIMONIOS — carousel */
-.testimonios-section{background:var(--cream-dark)}
+.testimonios-section{background:var(--cream)}
 .testimonios-wrap{position:relative;margin-top:48px;max-width:640px;margin-left:auto;margin-right:auto}
 .testimonios-track{overflow:hidden}
 .testimonios-slider{display:flex;transition:transform .5s ease}
@@ -126,7 +123,7 @@ section{padding:100px 48px}
 .carousel-dot.active{background:var(--garnet);transform:scale(1.2)}
 
 /* FAQ */
-.faq-section{background:var(--cream)}
+.faq-section{background:var(--cream-dark)}
 .faq-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:72px;align-items:start}
 .faq-list{margin-top:0}
 .faq-item{border-bottom:1px solid var(--taupe-light)}
@@ -141,12 +138,12 @@ details[open] .faq-icon::after{opacity:0;transform:translate(-50%,-50%) rotate(9
 .faq-a{padding:0 0 20px;font-size:.76rem;line-height:1.95;color:var(--text-light);max-width:520px}
 
 /* RESERVA */
-.reserva-section{background:var(--cream-dark);text-align:center;padding:100px 48px 120px}
+.reserva-section{background:var(--cream);text-align:center;padding:100px 48px 120px}
 .reserva-inner{max-width:900px;margin:0 auto}
 .calendly-inline-widget{border:1px solid var(--taupe-light);border-radius:8px}
 
 /* FOOTER */
-footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid var(--taupe-light)}
+footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:1px solid var(--taupe-light)}
 .footer-brand{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:600;letter-spacing:.16em;color:var(--garnet);text-transform:uppercase}
 .footer-links{display:flex;gap:28px;list-style:none}
 .footer-links a{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-light);text-decoration:none;transition:color .3s}
@@ -158,8 +155,6 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
 .fade-up.visible{opacity:1;transform:translateY(0)}
 .fade-delay-1{transition-delay:.1s}
 .fade-delay-2{transition-delay:.2s}
-
-/* SEPARATOR */
 .sep{width:100%;height:1px;background:var(--taupe-light);border:none;margin:0}
 
 @media(max-width:900px){
@@ -167,17 +162,20 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   .nav-links{position:fixed;top:0;right:-100%;width:260px;height:100vh;background:var(--cream);flex-direction:column;padding:80px 28px 40px;gap:24px;transition:right .35s;box-shadow:-4px 0 20px rgba(0,0,0,.08)}
   .nav-links.open{right:0}
   .hamburger{display:flex}
-  .hero{grid-template-columns:1fr;padding:80px 24px 48px;min-height:auto;gap:32px}
-  .hero-video{width:220px;margin:0 auto}
+  .hero{min-height:70vh}
+  .hero-content{padding:80px 24px 48px}
+  .hero-bg{width:100%;opacity:.3}
+  .hero-overlay{width:100%;background:linear-gradient(to bottom,var(--cream) 0%,rgba(250,248,245,.7) 50%,rgba(250,248,245,.4) 100%)}
+  .hero-video{position:static;transform:none;width:200px;margin:24px auto 0}
   section{padding:64px 24px}
-  .about-grid,.combined-grid,.faq-grid{grid-template-columns:1fr;gap:40px}
-  .steps,.testimonios-grid{grid-template-columns:1fr}
-  .about-stats{flex-wrap:wrap}
+  .about-grid,.paraquien-grid,.faq-grid{grid-template-columns:1fr;gap:40px}
+  .equipo-grid{flex-direction:column;align-items:center}
+  .steps{grid-template-columns:1fr}
+  .about-stats-big{gap:16px}
+  .stat-big-num{font-size:2.2rem}
   .media-section{padding:28px 20px}
   .media-inner{flex-wrap:wrap;gap:20px}
-  .media-logos{gap:24px}
-  .about-stats-big{gap:18px}
-  .stat-big-num{font-size:2.2rem}
+  .media-logos{gap:24px;flex-wrap:wrap;justify-content:center}
   footer{padding:32px 24px;flex-direction:column;text-align:center}
   .footer-links{flex-wrap:wrap;justify-content:center}
   .reserva-section{padding:64px 24px 80px}
@@ -200,17 +198,19 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   </ul>
 </nav>
 
-<!-- HERO — text + video -->
+<!-- HERO -->
 <section class="hero">
+  <img class="hero-bg" src="images/hero.jpg" alt="Sonia Barber — Psicóloga"/>
+  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title fade-up">No se trata de ser<br/><em>otra persona.</em><br/>Sino de elegir<br/><em>quién eres.</em></h1>
     <p class="hero-eyebrow fade-up fade-delay-1">Psicóloga en Valencia · Online</p>
-    <div class="hero-buttons fade-up fade-delay-2">
+    <div class="fade-up fade-delay-2">
       <a href="#reserva" class="btn-primary">Empieza tu cambio</a>
     </div>
   </div>
-  <div class="hero-video fade-up fade-delay-1">
-    <iframe src="https://www.youtube.com/embed/fC4SfDMK09o?autoplay=1&mute=1&loop=1&playlist=fC4SfDMK09o&rel=0&modestbranding=1&controls=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div class="hero-video fade-up fade-delay-2">
+    <iframe src="https://www.youtube.com/embed/DvZHAC7e_6M?autoplay=1&mute=1&loop=1&playlist=DvZHAC7e_6M&rel=0&modestbranding=1&controls=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -221,7 +221,7 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   </div>
 </div>
 
-<!-- MEDIA LOGOS -->
+<!-- MEDIA -->
 <div class="media-section">
   <div class="media-inner">
     <span class="media-label">Colaboraciones</span>
@@ -234,7 +234,7 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   </div>
 </div>
 
-<!-- SOBRE MÍ — photo + text -->
+<!-- SOBRE MÍ -->
 <section id="sobre-mi">
   <div class="section-inner">
     <div class="about-grid">
@@ -244,16 +244,40 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
       <div class="fade-up fade-delay-1">
         <p class="section-label">Sobre mí</p>
         <h2 class="section-title"><em>Psicóloga clínica.</em></h2>
-        <div class="divider"></div>
-        <div class="about-body">
-          <p>Soy Sonia Barber, psicóloga colegiada especializada en terapia cognitivo-conductual y psicología humanista. Trabajo desde un enfoque integrador, adaptado a cada persona y a su momento vital.</p>
-          <p>Mi consulta está en Valencia, aunque también atiendo de forma completamente online. Creo en la terapia como un espacio seguro donde la persona puede explorar, entenderse y crecer sin juicios.</p>
-        </div>
         <div class="about-stats-big">
           <div class="stat-big"><span class="stat-big-num">+100</span><span class="stat-big-label">pacientes acompañados</span></div>
           <div class="stat-big"><span class="stat-big-num">+500h</span><span class="stat-big-label">de formación especializada</span></div>
           <div class="stat-big"><span class="stat-big-num">95%</span><span class="stat-big-label">de pacientes alcanzan sus objetivos terapéuticos</span></div>
         </div>
+        <div class="divider"></div>
+        <div class="about-body">
+          <p>Soy Sonia Barber, psicóloga colegiada especializada en terapia cognitivo-conductual y psicología humanista. Trabajo desde un enfoque integrador, adaptado a cada persona y a su momento vital.</p>
+          <p>Mi consulta está en Valencia, aunque también atiendo de forma completamente online. Creo en la terapia como un espacio seguro donde la persona puede explorar, entenderse y crecer sin juicios.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep"/>
+
+<!-- EQUIPO -->
+<section class="equipo-section" id="equipo">
+  <div class="section-inner">
+    <div class="fade-up" style="text-align:center">
+      <p class="section-label">Nuestro equipo</p>
+      <h2 class="section-title">Las personas que te <em>acompañarán.</em></h2>
+    </div>
+    <div class="equipo-grid">
+      <div class="equipo-card fade-up">
+        <img src="images/sonia.png" alt="Sonia Barber"/>
+        <p class="equipo-name">Sonia Barber</p>
+        <p class="equipo-role">Psicóloga, investigadora y divulgadora</p>
+      </div>
+      <div class="equipo-card fade-up fade-delay-1">
+        <img src="images/julia.png" alt="Julia Placeholder"/>
+        <p class="equipo-name">Julia Placeholder</p>
+        <p class="equipo-role">Psicóloga y neuropsicóloga</p>
       </div>
     </div>
   </div>
@@ -278,10 +302,10 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
 
 <hr class="sep"/>
 
-<!-- PARA QUIÉN + VIDEO — combined -->
-<section class="combined-section" id="para-quien">
+<!-- PARA QUIÉN -->
+<section class="paraquien-section" id="para-quien">
   <div class="section-inner">
-    <div class="combined-grid">
+    <div class="paraquien-grid">
       <div class="fade-up">
         <img class="paraquien-img" src="images/paraquien.jpg" alt="Sonia Barber trabajando"/>
       </div>
@@ -332,7 +356,7 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
 
 <hr class="sep"/>
 
-<!-- FAQ — side by side with image -->
+<!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="section-inner">
     <div class="faq-grid">
@@ -358,7 +382,7 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
 
 <hr class="sep"/>
 
-<!-- RESERVA — Calendly grande -->
+<!-- RESERVA -->
 <section class="reserva-section" id="reserva">
   <div class="reserva-inner">
     <div class="fade-up">
@@ -391,26 +415,12 @@ document.getElementById('menuBtn').addEventListener('click',()=>{document.getEle
 document.querySelectorAll('.nav-links a').forEach(a=>{a.addEventListener('click',()=>{document.getElementById('navLinks').classList.remove('open')})})
 const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:.1})
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el))
-
-// Testimonials carousel
 ;(function(){
-  const slider=document.getElementById('testimonioSlider')
-  const items=slider.children
-  const total=items.length
+  const slider=document.getElementById('testimonioSlider'),items=slider.children,total=items.length
   let current=0
   const dotsWrap=document.getElementById('carouselDots')
-  for(let i=0;i<total;i++){
-    const d=document.createElement('button')
-    d.className='carousel-dot'+(i===0?' active':'')
-    d.setAttribute('aria-label','Testimonio '+(i+1))
-    d.onclick=()=>goTo(i)
-    dotsWrap.appendChild(d)
-  }
-  function goTo(n){
-    current=n
-    slider.style.transform='translateX(-'+current*100+'%)'
-    dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===current))
-  }
+  for(let i=0;i<total;i++){const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.setAttribute('aria-label','Testimonio '+(i+1));d.onclick=()=>goTo(i);dotsWrap.appendChild(d)}
+  function goTo(n){current=n;slider.style.transform='translateX(-'+current*100+'%)';dotsWrap.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===current))}
   document.getElementById('prevBtn').onclick=()=>goTo(current>0?current-1:total-1)
   document.getElementById('nextBtn').onclick=()=>goTo(current<total-1?current+1:0)
 })()
