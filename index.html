@@ -28,16 +28,16 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
 .hamburger span{width:22px;height:1.5px;background:var(--text);transition:all .3s}
 
-/* HERO */
-.hero{position:relative;min-height:92vh;overflow:hidden;display:flex;align-items:center;background:var(--cream)}
-.hero-bg{position:absolute;top:0;right:0;width:55%;height:100%;object-fit:cover;object-position:center 10%}
-.hero-overlay{position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(to right,var(--cream) 0%,rgba(250,248,245,.6) 15%,rgba(250,248,245,.15) 40%,transparent 60%)}
-.hero-content{position:relative;z-index:2;padding:80px 48px 60px;max-width:540px}
-.hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.25;color:var(--text);margin-bottom:20px}
-.hero-title em{font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--garnet);font-size:1.15em}
-.hero-eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--garnet);margin-bottom:32px;font-weight:500}
-.hero-video{position:absolute;top:50%;right:48px;transform:translateY(-50%);width:260px;aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(46,41,38,.15);z-index:3}
-.hero-video iframe{width:100%;height:100%;border:none}
+/* HERO — video bg, centered text */
+.hero{position:relative;min-height:92vh;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#000}
+.hero-video-bg{position:absolute;inset:0;overflow:hidden}
+.hero-video-bg iframe{position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);border:none;pointer-events:none}
+.hero-overlay{position:absolute;inset:0;background:rgba(250,248,245,.8);z-index:1}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:700px;padding:20px 24px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4.4rem);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:20px}
+.hero-title em{font-style:italic;color:var(--garnet)}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--garnet);margin-bottom:36px;font-weight:500}
+.hero-buttons{display:flex;gap:14px;justify-content:center}
 .btn-primary{display:inline-block;background:var(--garnet);color:#fff;text-decoration:none;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:15px 34px;border-radius:2px;transition:all .3s;font-weight:500}
 .btn-primary:hover{background:var(--garnet-light);transform:translateY(-1px);box-shadow:0 8px 28px rgba(107,31,42,.18)}
 
@@ -164,9 +164,6 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
   .hamburger{display:flex}
   .hero{min-height:70vh}
   .hero-content{padding:80px 24px 48px}
-  .hero-bg{width:100%;opacity:.3}
-  .hero-overlay{width:100%;background:linear-gradient(to bottom,var(--cream) 0%,rgba(250,248,245,.7) 50%,rgba(250,248,245,.4) 100%)}
-  .hero-video{position:static;transform:none;width:200px;margin:24px auto 0}
   section{padding:64px 24px}
   .about-grid,.paraquien-grid,.faq-grid{grid-template-columns:1fr;gap:40px}
   .equipo-grid{flex-direction:column;align-items:center}
@@ -200,17 +197,16 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-bg" src="images/hero.jpg" alt="Sonia Barber — Psicóloga"/>
+  <div class="hero-video-bg">
+    <iframe src="https://www.youtube.com/embed/DvZHAC7e_6M?autoplay=1&mute=1&loop=1&playlist=DvZHAC7e_6M&rel=0&modestbranding=1&controls=0&showinfo=0&vq=hd1080" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title fade-up">No se trata de ser<br/><em>otra persona.</em><br/>Sino de elegir<br/><em>quién eres.</em></h1>
     <p class="hero-eyebrow fade-up fade-delay-1">Psicóloga en Valencia · Online</p>
-    <div class="fade-up fade-delay-2">
+    <div class="hero-buttons fade-up fade-delay-2">
       <a href="#reserva" class="btn-primary">Empieza tu cambio</a>
     </div>
-  </div>
-  <div class="hero-video fade-up fade-delay-2">
-    <iframe src="https://www.youtube.com/embed/DvZHAC7e_6M?autoplay=1&mute=1&loop=1&playlist=DvZHAC7e_6M&rel=0&modestbranding=1&controls=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </section>
 
