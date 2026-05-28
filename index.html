@@ -38,16 +38,15 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
 .hamburger span{width:22px;height:1.5px;background:var(--text);transition:all .3s}
 
-/* HERO — overlay style, tight */
-.hero{position:relative;min-height:92vh;overflow:hidden;display:flex;align-items:center;background:var(--cream)}
-.hero-img{position:absolute;top:0;right:0;width:55%;height:100%;object-fit:cover;object-position:center 10%}
-.hero-overlay{position:absolute;top:0;right:0;width:55%;height:100%;background:linear-gradient(to right,var(--cream) 0%,rgba(250,248,245,.6) 15%,rgba(250,248,245,.15) 40%,transparent 60%)}
-.hero-content{position:relative;z-index:2;padding:80px 48px 60px;max-width:540px}
+/* HERO — text left, video right */
+.hero{display:grid;grid-template-columns:1fr auto;min-height:92vh;background:var(--cream);align-items:center;padding:80px 48px 60px;gap:48px}
+.hero-content{max-width:520px}
 .hero-eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--garnet);margin-bottom:32px;margin-top:8px;font-weight:500}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.8vw,3.6rem);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:24px}
 .hero-title em{font-style:italic;color:var(--garnet)}
-.hero-sub{font-size:.8rem;color:var(--text-light);line-height:1.9;letter-spacing:.03em;margin-bottom:36px;max-width:400px}
 .hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.hero-video{width:280px;aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(46,41,38,.12);flex-shrink:0}
+.hero-video iframe{width:100%;height:100%;border:none}
 .btn-primary{display:inline-block;background:var(--garnet);color:#fff;text-decoration:none;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:15px 34px;border-radius:2px;transition:all .3s;font-weight:500}
 .btn-primary:hover{background:var(--garnet-light);transform:translateY(-1px);box-shadow:0 8px 28px rgba(107,31,42,.18)}
 .btn-outline{display:inline-block;border:1px solid var(--taupe);color:var(--text);text-decoration:none;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:14px 30px;border-radius:2px;transition:all .3s;font-weight:500}
@@ -83,9 +82,10 @@ section{padding:100px 48px}
 .about-img{width:100%;border-radius:4px;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top}
 .about-body{font-size:.8rem;line-height:2;color:var(--text-light);margin-top:18px}
 .about-body p+p{margin-top:12px}
-.about-stats{display:flex;gap:32px;margin-top:36px;padding-top:32px;border-top:1px solid var(--taupe-light)}
-.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--garnet);display:block;line-height:1}
-.stat-label{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);margin-top:5px;display:block}
+.about-stats-big{margin-top:40px;padding-top:36px;border-top:1px solid var(--taupe-light);display:flex;flex-direction:column;gap:24px}
+.stat-big{display:flex;align-items:baseline;gap:14px}
+.stat-big-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--garnet);line-height:1;white-space:nowrap}
+.stat-big-label{font-size:.78rem;color:var(--text-light);line-height:1.5}
 
 /* MÉTODO */
 .metodo-section{background:var(--cream-dark)}
@@ -100,14 +100,13 @@ section{padding:100px 48px}
 .step-top-line{position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .35s}
 .step:hover .step-top-line{background:var(--garnet)}
 
-/* PARA QUIÉN + VIDEO — fused section */
+/* PARA QUIÉN — with image */
 .combined-section{background:var(--cream)}
-.combined-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.combined-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.paraquien-img{width:100%;border-radius:4px;aspect-ratio:4/5;object-fit:cover;object-position:top}
 .paraquien-list{list-style:none;margin-top:24px}
 .paraquien-list li{padding:14px 0;border-bottom:1px solid var(--taupe-light);font-size:.78rem;line-height:1.8;color:var(--text-light);display:flex;gap:14px;align-items:flex-start}
 .paraquien-list li::before{content:'';width:3px;height:3px;border-radius:50%;background:var(--garnet);margin-top:9px;flex-shrink:0}
-.video-embed{margin-top:24px;border-radius:16px;overflow:hidden;aspect-ratio:9/16;max-width:260px;position:relative}
-.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 
 /* TESTIMONIOS — carousel */
 .testimonios-section{background:var(--cream-dark)}
@@ -168,9 +167,8 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   .nav-links{position:fixed;top:0;right:-100%;width:260px;height:100vh;background:var(--cream);flex-direction:column;padding:80px 28px 40px;gap:24px;transition:right .35s;box-shadow:-4px 0 20px rgba(0,0,0,.08)}
   .nav-links.open{right:0}
   .hamburger{display:flex}
-  .hero{min-height:70vh}
-  .hero-content{padding:80px 24px 48px}
-  .hero-overlay{background:linear-gradient(to bottom,var(--cream) 0%,rgba(250,248,245,.85) 40%,rgba(250,248,245,.6) 70%,rgba(250,248,245,.3) 100%)}
+  .hero{grid-template-columns:1fr;padding:80px 24px 48px;min-height:auto;gap:32px}
+  .hero-video{width:220px;margin:0 auto}
   section{padding:64px 24px}
   .about-grid,.combined-grid,.faq-grid{grid-template-columns:1fr;gap:40px}
   .steps,.testimonios-grid{grid-template-columns:1fr}
@@ -178,7 +176,8 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   .media-section{padding:28px 20px}
   .media-inner{flex-wrap:wrap;gap:20px}
   .media-logos{gap:24px}
-  .video-embed{max-width:200px}
+  .about-stats-big{gap:18px}
+  .stat-big-num{font-size:2.2rem}
   footer{padding:32px 24px;flex-direction:column;text-align:center}
   .footer-links{flex-wrap:wrap;justify-content:center}
   .reserva-section{padding:64px 24px 80px}
@@ -201,16 +200,17 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   </ul>
 </nav>
 
-<!-- HERO — overlay style -->
+<!-- HERO — text + video -->
 <section class="hero">
-  <img class="hero-img" src="images/hero.jpg" alt="Sonia Barber — Psicóloga"/>
-  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title fade-up">No se trata de ser<br/><em>otra persona.</em><br/>Sino de elegir<br/><em>quién eres.</em></h1>
     <p class="hero-eyebrow fade-up fade-delay-1">Psicóloga en Valencia · Online</p>
     <div class="hero-buttons fade-up fade-delay-2">
       <a href="#reserva" class="btn-primary">Empieza tu cambio</a>
     </div>
+  </div>
+  <div class="hero-video fade-up fade-delay-1">
+    <iframe src="https://www.youtube.com/embed/fC4SfDMK09o?autoplay=1&mute=1&loop=1&playlist=fC4SfDMK09o&rel=0&modestbranding=1&controls=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -243,16 +243,16 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
       </div>
       <div class="fade-up fade-delay-1">
         <p class="section-label">Sobre mí</p>
-        <h2 class="section-title">Psicóloga clínica.<br/>Con <em>más de 15 años</em><br/>acompañando personas.</h2>
+        <h2 class="section-title"><em>Psicóloga clínica.</em></h2>
         <div class="divider"></div>
         <div class="about-body">
           <p>Soy Sonia Barber, psicóloga colegiada especializada en terapia cognitivo-conductual y psicología humanista. Trabajo desde un enfoque integrador, adaptado a cada persona y a su momento vital.</p>
           <p>Mi consulta está en Valencia, aunque también atiendo de forma completamente online. Creo en la terapia como un espacio seguro donde la persona puede explorar, entenderse y crecer sin juicios.</p>
         </div>
-        <div class="about-stats">
-          <div><span class="stat-num">+15</span><span class="stat-label">Años de experiencia</span></div>
-          <div><span class="stat-num">+800</span><span class="stat-label">Pacientes</span></div>
-          <div><span class="stat-num">98%</span><span class="stat-label">Satisfacción</span></div>
+        <div class="about-stats-big">
+          <div class="stat-big"><span class="stat-big-num">+100</span><span class="stat-big-label">pacientes acompañados</span></div>
+          <div class="stat-big"><span class="stat-big-num">+500h</span><span class="stat-big-label">de formación especializada</span></div>
+          <div class="stat-big"><span class="stat-big-num">95%</span><span class="stat-big-label">de pacientes alcanzan sus objetivos terapéuticos</span></div>
         </div>
       </div>
     </div>
@@ -283,6 +283,9 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
   <div class="section-inner">
     <div class="combined-grid">
       <div class="fade-up">
+        <img class="paraquien-img" src="images/paraquien.jpg" alt="Sonia Barber trabajando"/>
+      </div>
+      <div class="fade-up fade-delay-1">
         <p class="section-label">¿Es para ti?</p>
         <h2 class="section-title">Puede que te <em>reconozcas</em><br/>en algo de esto.</h2>
         <div class="divider"></div>
@@ -294,13 +297,6 @@ footer{background:var(--cream);padding:40px 48px;display:flex;justify-content:sp
           <li>Sabes que algo no está bien, pero no sabes exactamente qué.</li>
           <li>Quieres trabajarte desde dentro, no solo «estar mejor» puntualmente.</li>
         </ul>
-      </div>
-      <div class="fade-up fade-delay-1">
-        <p class="section-label">Un momento de tu tiempo</p>
-        <h2 class="section-title">Hay algo que<br/><em>quiero contarte.</em></h2>
-        <div class="video-embed">
-          <iframe src="https://www.youtube.com/embed/fC4SfDMK09o?autoplay=1&mute=1&loop=1&playlist=fC4SfDMK09o&rel=0&modestbranding=1&controls=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
       </div>
     </div>
   </div>
