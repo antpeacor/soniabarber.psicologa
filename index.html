@@ -69,16 +69,17 @@ section{padding:100px 48px}
 .equipo-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--text);margin-bottom:6px}
 .equipo-role{font-size:.72rem;color:var(--text-light);line-height:1.6}
 .metodo-section{background:var(--cream)}
-.metodo-intro{max-width:480px;margin:0 auto 56px;text-align:center}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--taupe-light);border:1px solid var(--taupe-light);border-radius:4px;overflow:hidden}
-.step{background:var(--cream);padding:44px 32px;position:relative;transition:background .3s}
-.step:hover{background:#fff}
-.step-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--taupe-mid);line-height:1;margin-bottom:18px;display:block;transition:color .3s}
-.step:hover .step-num{color:var(--garnet)}
-.step-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;margin-bottom:12px;color:var(--text)}
-.step-body{font-size:.75rem;line-height:1.9;color:var(--text-light)}
-.step-top-line{position:absolute;top:0;left:0;right:0;height:2px;background:transparent;transition:background .35s}
-.step:hover .step-top-line{background:var(--garnet)}
+.metodo-intro{max-width:480px;margin:0 auto 72px;text-align:center}
+.timeline{display:flex;justify-content:center;align-items:flex-start;gap:0;position:relative;max-width:900px;margin:0 auto}
+.timeline::before{content:'';position:absolute;top:36px;left:calc(16.66% + 18px);right:calc(16.66% + 18px);height:1px;background:var(--taupe-mid)}
+.timeline-step{flex:1;text-align:center;position:relative;padding:0 20px}
+.timeline-icon{width:72px;height:72px;border-radius:50%;border:1.5px solid var(--taupe-mid);background:var(--cream);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;position:relative;z-index:2;transition:border-color .4s}
+.timeline-step:hover .timeline-icon{border-color:var(--garnet)}
+.timeline-icon svg{width:28px;height:28px;stroke:var(--taupe);fill:none;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;transition:stroke .4s}
+.timeline-step:hover .timeline-icon svg{stroke:var(--garnet)}
+.timeline-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--garnet);margin-bottom:6px;font-weight:500}
+.timeline-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--text);margin-bottom:10px}
+.timeline-body{font-size:.72rem;line-height:1.85;color:var(--text-light);max-width:240px;margin:0 auto}
 .paraquien-section{background:var(--cream-dark)}
 .paraquien-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .paraquien-img{width:100%;border-radius:4px;aspect-ratio:4/5;object-fit:cover;object-position:top}
@@ -140,7 +141,9 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
   section{padding:64px 24px}
   .about-grid,.paraquien-grid,.faq-grid{grid-template-columns:1fr;gap:40px}
   .equipo-grid{flex-direction:column;align-items:center}
-  .steps{grid-template-columns:1fr}
+  .timeline{flex-direction:column;align-items:center;gap:40px}
+  .timeline::before{display:none}
+  .timeline-step{max-width:320px}
   .about-stats{flex-wrap:wrap}
   .media-section{padding:28px 20px}
   .media-inner{flex-wrap:wrap;gap:20px}
@@ -215,17 +218,32 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
 
 <section class="metodo-section" id="metodo"><div class="section-inner">
   <div class="metodo-intro fade-up"><p class="section-label">Cómo trabajamos</p><h2 class="section-title">Un proceso <em>pensado para ti,</em><br/>paso a paso.</h2></div>
-  <div class="steps">
-    <div class="step fade-up"><div class="step-top-line"></div><span class="step-num">01</span><h3 class="step-title">Llamada de valoración gratuita</h3><p class="step-body">Nos conocemos sin compromiso. Te escucho, resuelvo tus dudas y valoramos juntas si la terapia conmigo es el camino adecuado para ti.</p></div>
-    <div class="step fade-up fade-delay-1"><div class="step-top-line"></div><span class="step-num">02</span><h3 class="step-title">Plan de acción personalizado</h3><p class="step-body">Exploramos tu situación actual, tu historia y tus objetivos. Diseñamos un plan terapéutico personalizado, claro y con dirección.</p></div>
-    <div class="step fade-up fade-delay-2"><div class="step-top-line"></div><span class="step-num">03</span><h3 class="step-title">Proceso terapéutico</h3><p class="step-body">Pasamos a la acción. Sesiones individuales que son tu espacio seguro. Herramientas reales para que avances de forma medible.</p></div>
+  <div class="timeline fade-up">
+    <div class="timeline-step">
+      <div class="timeline-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+      <p class="timeline-label">Paso 1</p>
+      <h3 class="timeline-title">Llamada de valoración gratuita</h3>
+      <p class="timeline-body">Nos conocemos sin compromiso. Te escucho, resuelvo tus dudas y valoramos juntas si la terapia conmigo es el camino adecuado para ti.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+      <p class="timeline-label">Paso 2</p>
+      <h3 class="timeline-title">Plan de acción personalizado</h3>
+      <p class="timeline-body">Exploramos tu situación actual, tu historia y tus objetivos. Diseñamos un plan terapéutico personalizado, claro y con dirección.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-icon"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg></div>
+      <p class="timeline-label">Paso 3</p>
+      <h3 class="timeline-title">Proceso terapéutico</h3>
+      <p class="timeline-body">Pasamos a la acción. Sesiones individuales que son tu espacio seguro. Herramientas reales para que avances de forma medible.</p>
+    </div>
   </div>
 </div></section>
 
 <hr class="sep"/>
 
 <section class="paraquien-section" id="para-quien"><div class="section-inner"><div class="paraquien-grid">
-  <div class="fade-up"><img class="paraquien-img" src="images/trabajando.png" alt="Sonia Barber trabajando"/></div>
+  <div class="fade-up"><img class="paraquien-img" src="images/paraquien.jpg" alt="Sonia Barber trabajando"/></div>
   <div class="fade-up fade-delay-1">
     <p class="section-label">¿Es para ti?</p>
     <h2 class="section-title">Puede que te <em>reconozcas</em><br/>en algo de esto.</h2>
