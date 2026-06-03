@@ -25,15 +25,14 @@ nav.scrolled{background:rgba(250,248,245,.95);backdrop-filter:blur(12px);border-
 .nav-cta:hover{background:var(--garnet-light)!important}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:200}
 .hamburger span{width:22px;height:1.5px;background:var(--text);transition:all .3s}
-.hero{position:relative;min-height:92vh;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#000}
-.hero-video-bg{position:absolute;inset:0;overflow:hidden}
-.hero-video-bg iframe{position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);border:none;pointer-events:none}
-.hero-overlay{position:absolute;inset:0;background:rgba(250,248,245,.8);z-index:1}
-.hero-content{position:relative;z-index:2;text-align:center;max-width:700px;padding:20px 24px}
+.hero{display:flex;align-items:center;justify-content:center;gap:60px;min-height:92vh;background:var(--cream);padding:80px 48px 60px}
+.hero-content{max-width:480px}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5vw,4.4rem);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:20px}
 .hero-title em{font-style:italic;color:var(--garnet)}
 .hero-eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--garnet);margin-bottom:36px;font-weight:500}
-.hero-buttons{display:flex;gap:14px;justify-content:center}
+.hero-buttons{display:flex;gap:14px}
+.hero-video{width:260px;flex-shrink:0;aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(46,41,38,.12)}
+.hero-video iframe{width:100%;height:100%;border:none}
 .btn-primary{display:inline-block;background:var(--garnet);color:#fff;text-decoration:none;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:15px 34px;border-radius:2px;transition:all .3s;font-weight:500}
 .btn-primary:hover{background:var(--garnet-light);transform:translateY(-1px);box-shadow:0 8px 28px rgba(107,31,42,.18)}
 .ticker-section{background:var(--garnet);padding:14px 0;overflow:hidden}
@@ -127,6 +126,10 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
 .fade-delay-1{transition-delay:.1s}
 .fade-delay-2{transition-delay:.2s}
 .sep{width:100%;height:1px;background:var(--taupe-light);border:none;margin:0}
+.nav-social{display:flex;gap:18px;align-items:center;margin-right:12px}
+.nav-social a{display:flex;align-items:center}
+.nav-social svg{width:18px;height:18px;stroke:var(--garnet);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:opacity .3s}
+.nav-social a:hover svg{opacity:.6}
 /* PRIVACY */
 .privacy-page{padding:120px 48px 80px;max-width:720px;margin:0 auto}
 .privacy-page h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:400;color:var(--text);margin:32px 0 12px}
@@ -136,11 +139,10 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
   .nav-links{position:fixed;top:0;right:-100%;width:260px;height:100vh;background:var(--cream);flex-direction:column;padding:80px 28px 40px;gap:24px;transition:right .35s;box-shadow:-4px 0 20px rgba(0,0,0,.08)}
   .nav-links.open{right:0}
   .hamburger{display:flex}
-  .hero{min-height:70vh}
-  .hero-content{padding:80px 24px 48px}
+  .hero{flex-direction:column;padding:80px 24px 48px;min-height:auto;gap:32px;text-align:center}
+  .hero-video{width:200px}
   section{padding:64px 24px}
   .about-grid,.paraquien-grid,.faq-grid{grid-template-columns:1fr;gap:40px}
-  .equipo-grid{flex-direction:column;align-items:center}
   .timeline{flex-direction:column;align-items:center;gap:40px}
   .timeline::before{display:none}
   .timeline-step{max-width:320px}
@@ -160,6 +162,7 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
   <a href="#" class="nav-logo"><img src="images/logo.png" alt="SB"/><div class="nav-logo-text">Sonia Barber<span class="nav-sub">Psicología</span></div></a>
   <button class="hamburger" id="menuBtn" aria-label="Menú"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
+    <li class="nav-social"><a href="https://www.instagram.com/soniabarber.psicologia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2"/></svg></a><a href="https://www.linkedin.com/in/sonia-barber-belda-016221292/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></li>
     <li><a href="#sobre-mi">Sobre mí</a></li>
     <li><a href="#metodo">Método</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -168,12 +171,13 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
 </nav>
 
 <section class="hero">
-  <div class="hero-video-bg"><iframe src="https://www.youtube.com/embed/DvZHAC7e_6M?autoplay=1&mute=1&loop=1&playlist=DvZHAC7e_6M&rel=0&modestbranding=1&controls=0&showinfo=0&vq=hd1080" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>
-  <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title fade-up">No se trata de ser<br/><em>otra persona.</em><br/>Sino de elegir<br/>quién <em>quieres ser.</em></h1>
     <p class="hero-eyebrow fade-up fade-delay-1">Sonia Barber · Psicóloga</p>
     <div class="hero-buttons fade-up fade-delay-2"><a href="#reserva" class="btn-primary">Empieza tu cambio</a></div>
+  </div>
+  <div class="hero-video fade-up fade-delay-1">
+    <iframe src="https://www.youtube.com/embed/fC4SfDMK09o?autoplay=1&mute=1&loop=1&playlist=fC4SfDMK09o&rel=0&modestbranding=1&controls=0&showinfo=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 </section>
 
@@ -203,16 +207,6 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
     </div>
   </div>
 </div></div></section>
-
-<hr class="sep"/>
-
-<section class="equipo-section" id="equipo"><div class="section-inner">
-  <div class="fade-up" style="text-align:center"><p class="section-label">Nuestro equipo</p><h2 class="section-title">Las personas que te <em>acompañarán.</em></h2></div>
-  <div class="equipo-grid">
-    <div class="equipo-card fade-up"><img src="images/sonia.png" alt="Sonia Barber"/><p class="equipo-name">Sonia Barber</p><p class="equipo-role">Psicóloga, investigadora y divulgadora</p></div>
-    <div class="equipo-card fade-up fade-delay-1"><img src="images/julia.png" alt="Julia Placeholder"/><p class="equipo-name">Julia Placeholder</p><p class="equipo-role">Psicóloga y neuropsicóloga</p></div>
-  </div>
-</div></section>
 
 <hr class="sep"/>
 
@@ -298,6 +292,8 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
     <div class="faq-item"><details><summary>¿Trabajas con seguros médicos?<span class="faq-icon"></span></summary><p class="faq-a">Actualmente atiendo de forma privada. Esto me permite ofrecerte un enfoque personalizado, sin limitaciones en el número de sesiones ni en los tiempos.</p></details></div>
   </div>
 </div></div></section>
+
+<hr class="sep"/>
 
 <hr class="sep"/>
 
