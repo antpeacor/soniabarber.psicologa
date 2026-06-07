@@ -160,7 +160,6 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
   .reserva-section{padding:64px 24px 80px}
 }
 </style>
-</head>
 <body>
 
 <nav id="nav">
@@ -168,8 +167,9 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
   <button class="hamburger" id="menuBtn" aria-label="Menú"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li class="nav-social"><a href="https://www.instagram.com/soniabarber.psicologia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2"/></svg></a><a href="https://www.linkedin.com/in/sonia-barber-belda-016221292/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a><a href="https://wa.link/8j01d1" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg></a></li>
-    <li><a href="#sobre-mi">Sobre mí</a></li>
     <li><a href="#metodo">Método</a></li>
+    <li><a href="#testimonios">Testimonios</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#reserva" class="nav-cta">Reservar llamada</a></li>
   </ul>
@@ -182,7 +182,7 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
     <div class="hero-buttons fade-up fade-delay-2"><a href="#reserva" class="btn-primary">Empieza tu cambio</a></div>
   </div>
   <div class="hero-video fade-up fade-delay-1" id="heroVideoWrap">
-    <img src="https://img.youtube.com/vi/QZ9TPsTT0i0/maxresdefault.jpg" alt="Vídeo de presentación" class="video-thumb"/>
+    <img src="https://lh3.googleusercontent.com/d/1m9h0ymOH_qOo_9HDmVQOEkgH06VLsA6w=w800" alt="Vídeo de presentación" class="video-thumb" onerror="this.src='images/about.jpg'"/>
     <button class="play-btn-hero" id="playBtn" aria-label="Reproducir vídeo"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
   </div>
 </section>
@@ -196,26 +196,23 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
   <div class="media-logos"><img src="images/expansion.png" alt="Expansión"/><img src="images/efe.png" alt="Agencia EFE"/><img src="images/ief.png" alt="Instituto de Estudios Financieros"/></div>
 </div></div>
 
-<section id="sobre-mi"><div class="section-inner"><div class="about-grid">
-  <div class="fade-up"><img class="about-img" src="images/about.jpg" alt="Sonia Barber en su consulta"/></div>
-  <div class="fade-up fade-delay-1">
-    <p class="section-label">Sobre mí</p>
-    <h2 class="section-title"><em>Psicóloga clínica.</em></h2>
-    <div class="divider"></div>
-    <div class="about-body">
-      <p>Soy Sonia Barber, psicóloga colegiada especializada en terapia cognitivo-conductual. Trabajo desde un enfoque adaptado a cada persona y a su momento vital, porque cada proceso es diferente.</p>
-      <p>Mi objetivo es ofrecerte un espacio seguro donde puedas sentirte escuchado/a, comprender mejor lo que te ocurre y aprender herramientas que te ayuden a generar cambios reales en tu día a día.</p>
-    </div>
-    <div class="about-stats">
-      <div><span class="stat-num">+100</span><span class="stat-label">Pacientes acompañados</span></div>
-      <div><span class="stat-num">+500h</span><span class="stat-label">Formación especializada</span></div>
-      <div><span class="stat-num">95%</span><span class="stat-label">Alcanzan sus objetivos</span></div>
-    </div>
+<!-- RESERVA (moved up) -->
+<section class="reserva-section" id="reserva"><div class="reserva-inner">
+  <div class="fade-up">
+    <p class="section-label">El primer paso</p>
+    <h2 class="section-title" style="font-size:clamp(2rem,3.5vw,3rem)">Reserva tu llamada de valoración <em>gratuita.</em></h2>
+    <div class="divider divider-center"></div>
+    <p style="font-size:.78rem;color:var(--text-light);line-height:1.9;max-width:440px;margin:0 auto">Sin compromiso. Sin prisas. Solo un espacio para conocernos y ver si puedo acompañarte.</p>
   </div>
-</div></div></section>
+  <div class="fade-up fade-delay-1" style="margin-top:44px;">
+    <div class="calendly-inline-widget" data-url="https://calendly.com/soniabarber/psicologia?hide_gdpr_banner=1&background_color=f3efe9&text_color=2e2926&primary_color=6b1f2a" style="min-width:320px;height:900px;border-radius:8px;overflow:hidden;"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+</div></section>
 
 <hr class="sep"/>
 
+<!-- MÉTODO -->
 <section class="metodo-section" id="metodo"><div class="section-inner">
   <div class="metodo-intro fade-up"><p class="section-label">Cómo trabajamos</p><h2 class="section-title">Un proceso <em>pensado para ti,</em><br/>paso a paso.</h2></div>
   <div class="timeline fade-up">
@@ -242,6 +239,7 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
 
 <hr class="sep"/>
 
+<!-- PARA QUIÉN -->
 <section class="paraquien-section" id="para-quien"><div class="section-inner"><div class="paraquien-grid">
   <div class="fade-up"><img class="paraquien-img" src="images/trabajando.png" alt="Sonia Barber trabajando"/></div>
   <div class="fade-up fade-delay-1">
@@ -262,6 +260,7 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
 
 <hr class="sep"/>
 
+<!-- TESTIMONIOS -->
 <section class="testimonios-section" id="testimonios"><div class="section-inner">
   <div class="fade-up" style="text-align:center"><p class="section-label">Testimonios</p><h2 class="section-title">Lo que dicen quienes <em>ya han dado el paso.</em></h2></div>
   <div class="testimonios-wrap fade-up">
@@ -282,6 +281,28 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
 
 <hr class="sep"/>
 
+<!-- SOBRE MÍ (moved down) -->
+<section id="sobre-mi"><div class="section-inner"><div class="about-grid">
+  <div class="fade-up"><img class="about-img" src="images/about.jpg" alt="Sonia Barber en su consulta"/></div>
+  <div class="fade-up fade-delay-1">
+    <p class="section-label">Sobre mí</p>
+    <h2 class="section-title"><em>Psicóloga clínica.</em></h2>
+    <div class="divider"></div>
+    <div class="about-body">
+      <p>Soy Sonia Barber, psicóloga colegiada especializada en terapia cognitivo-conductual. Trabajo desde un enfoque adaptado a cada persona y a su momento vital, porque cada proceso es diferente.</p>
+      <p>Mi objetivo es ofrecerte un espacio seguro donde puedas sentirte escuchado/a, comprender mejor lo que te ocurre y aprender herramientas que te ayuden a generar cambios reales en tu día a día.</p>
+    </div>
+    <div class="about-stats">
+      <div><span class="stat-num">+100</span><span class="stat-label">Pacientes acompañados</span></div>
+      <div><span class="stat-num">+500h</span><span class="stat-label">Formación especializada</span></div>
+      <div><span class="stat-num">95%</span><span class="stat-label">Alcanzan sus objetivos</span></div>
+    </div>
+  </div>
+</div></div></section>
+
+<hr class="sep"/>
+
+<!-- FAQ -->
 <section class="faq-section" id="faq"><div class="section-inner"><div class="faq-grid">
   <div class="fade-up">
     <p class="section-label">Preguntas frecuentes</p>
@@ -299,28 +320,11 @@ footer{background:var(--cream-dark);padding:40px 48px;display:flex;justify-conte
   </div>
 </div></div></section>
 
-<hr class="sep"/>
-
-<hr class="sep"/>
-
-<section class="reserva-section" id="reserva"><div class="reserva-inner">
-  <div class="fade-up">
-    <p class="section-label">El primer paso</p>
-    <h2 class="section-title" style="font-size:clamp(2rem,3.5vw,3rem)">Reserva tu llamada de valoración <em>gratuita.</em></h2>
-    <div class="divider divider-center"></div>
-    <p style="font-size:.78rem;color:var(--text-light);line-height:1.9;max-width:440px;margin:0 auto">Sin compromiso. Sin prisas. Solo un espacio para conocernos y ver si puedo acompañarte.</p>
-  </div>
-  <div class="fade-up fade-delay-1" style="margin-top:44px;">
-    <div class="calendly-inline-widget" data-url="https://calendly.com/soniabarber/psicologia?hide_gdpr_banner=1&background_color=f3efe9&text_color=2e2926&primary_color=6b1f2a" style="min-width:320px;height:900px;border-radius:8px;overflow:hidden;"></div>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  </div>
-</div></section>
-
 <footer>
   <div class="footer-brand">Sonia Barber Psicología</div>
   <ul class="footer-links">
-    <li><a href="#sobre-mi">Sobre mí</a></li>
     <li><a href="#metodo">Método</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
     <li><a href="#reserva">Reservar</a></li>
     <li><a href="contacto.html">Contacto</a></li>
     <li><a href="privacidad.html">Política de privacidad</a></li>
@@ -344,7 +348,7 @@ document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el))
 })()
 document.getElementById('playBtn').onclick=function(){
   const wrap=document.getElementById('heroVideoWrap')
-  wrap.innerHTML='<iframe src="https://www.youtube.com/embed/QZ9TPsTT0i0?autoplay=1&loop=1&playlist=QZ9TPsTT0i0&rel=0&modestbranding=1&controls=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>'
+  wrap.innerHTML='<iframe src="https://drive.google.com/file/d/1m9h0ymOH_qOo_9HDmVQOEkgH06VLsA6w/preview" allow="autoplay" allowfullscreen></iframe>'
   wrap.style.cursor='default'
 }
 </script>
